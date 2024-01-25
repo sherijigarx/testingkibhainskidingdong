@@ -221,7 +221,7 @@ class TextToSpeechService(AIModelService):
             # Score the output and update the weights
             score = self.score_output(output_path, prompt)
             bt.logging.info(f"Aggregated Score from the NISQA and WER Metric: {score}")
-            self.update_score(axon, score, service="Text-To-Speech")
+            self.update_score(axon, score, service="Text-To-Speech", ax=self.filtered_axon)
 
         except Exception as e:
             bt.logging.error(f"Error processing speech output: {e}")
